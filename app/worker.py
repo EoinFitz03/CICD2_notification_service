@@ -9,7 +9,7 @@ import aio_pika
 from app.database import SessionLocal
 from app.models import NotificationDB  # ensures table exists
 
-RABBIT_URL = os.getenv("RABBIT_URL", "amqp://guest:guest@rabbitmq:5672/")
+RABBIT_URL = os.environ["RABBIT_URL"]  # required
 EXCHANGE_NAME = os.getenv("EXCHANGE_NAME", "events_topic")
 QUEUE_NAME = os.getenv("QUEUE_NAME", "notification_events_queue")
 BINDING_KEY = os.getenv("BINDING_KEY", "workout.*")
